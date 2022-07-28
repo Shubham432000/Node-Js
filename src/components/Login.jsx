@@ -5,14 +5,14 @@ const Login = () => {
   const [password, SetPassword] = useState("");
   const navigate = useNavigate();
 
-  useEffect(()=>{
+ /* useEffect(()=>{
 
     const auth = localStorage.getItem('user');
   
-    if(auth){
-      navigate('/')
-    }
-  },[])
+   // if(auth){
+   //   navigate('/')
+    //}
+  },[])*/
 
   const handleLogin = async () => {
     console.warn("clicked");
@@ -27,13 +27,22 @@ const Login = () => {
     result = await result.json();
     console.warn(result);
 
-    if (result.auth) {
-      localStorage.setItem("user", JSON.stringify(result.user));
-      localStorage.setItem("token", JSON.stringify(result.auth));
+
+if(result){
+navigate('/')
+}else{
+  alert("no")
+}
+
+   /* if (result.auth) {
+      localStorage.setItem("user", JSON.stringify(result));
+      //localStorage.setItem("token", JSON.stringify(result.auth));
       navigate("/");
     } else {
       alert("please enter valid details");
-    }
+    }*/
+
+    
   };
   return (
     <div className="login">
